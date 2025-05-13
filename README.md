@@ -11,4 +11,9 @@
 
 ### Clerk
 `https://go.clerk.com/CfzKAWC`
+
+
 # BACKEND
+`npm init -y`
+`npm install express mongoose dotenv cloudinary cors @clerk/express socket.io `  
+`npm i -D nodemon`
