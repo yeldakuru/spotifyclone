@@ -22,7 +22,7 @@ backend/dist/
 *.local
 .env
 .env.*
-
+.env.local
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
