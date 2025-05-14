@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-
+import path from 'path';
 import { connectDB } from './lib/db.js';
 import { clerkMiddleware } from "@clerk/express";
 import userRoutes from './routes/user.route.js';
@@ -9,17 +9,23 @@ import adminRoutes from './routes/admin.route.js';
 import songRoutes from './routes/song.route.js';
 import albumRoutes from './routes/album.route.js';
 import statsRoutes from './routes/stats.route.js';
+import { use } from 'react';
 
 
 
 dotenv.config();
-
+const __dirname = path.resolve(); // Get the current directory name
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); //to parse json data (req.body)
 
 app.use(clerkMiddleware());//this will add auth to req obj => req.auth.
+app.use(fileUpload({//this will add file upload to req obj => req.files
+    useTempFiles: true,
+    tempFileDir: path.join(__dirname, '/temp'),
+}));
+
 
 
 app.use("/api/users", userRoutes);

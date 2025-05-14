@@ -14,6 +14,7 @@
 
 
 # BACKEND
-`npm init -y`
-`npm install express mongoose dotenv cloudinary cors @clerk/express socket.io `  
-`npm i -D nodemon`
+`npm init -y`  
+`npm install express mongoose dotenv cloudinary cors @clerk/express socket.io `   
+`npm i -D nodemon`  
+`npm i express-fileupload` 
