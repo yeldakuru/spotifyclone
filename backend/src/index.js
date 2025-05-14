@@ -12,7 +12,7 @@ import authRoutes from './routes/auth.route.js';
 import adminRoutes from './routes/admin.route.js';
 import songRoutes from './routes/song.route.js';
 import albumRoutes from './routes/album.route.js';
-import statsRoutes from './routes/stats.route.js';
+import statsRoutes from './routes/stat.route.js';
 
 
 
@@ -49,7 +49,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
-app.use("/api/stats", statsRoutes);
+app.use("/api/stat", statsRoutes);
 
 //error handling middleware
 app.use((err, req, res, next) => {//bu mddleware, next(error) kullanıldıgında çağrılır
