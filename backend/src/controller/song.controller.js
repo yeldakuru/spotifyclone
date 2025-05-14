@@ -43,7 +43,8 @@ export const getMadeForYouSongs = async (req, res, next) => {
             },
             {
                 $project: {
-                    _id: 1,
+                    _id: 1,//1 al,0 alma
+                    // 0 = exclude, 1 = include
                     title: 1,
                     artist: 1,
                     imageUrl: 1,
