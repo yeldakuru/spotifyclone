@@ -19,8 +19,8 @@ export const requireAdmin = async (req, res, next) => {
             return res.status(403).json({ message: "Unauthorized - you must be an admin" });
         }
 
-        next();//if admin ise sonraki fonksiyona geç
+        next();//if admin ise sonraki fonksiyona geç(admin.route sırasında createSong fonksiyonu)
     } catch (error) {
-        next(error);
+        next(error);//hata varsa error handling middleware'e geç
     }
 };
