@@ -12,6 +12,9 @@
 ### Clerk
 `https://go.clerk.com/CfzKAWC`
 
+### Other Packages
+`npm i react-router-dom`  
+`npm i axios`
 
 # BACKEND
 `npm init -y`  
