@@ -14,7 +14,8 @@
 
 ### Other Packages
 `npm i react-router-dom`  
-`npm i axios`
+`npm i axios`  
+`npm i lucide-react`
 
 # BACKEND
 `npm init -y`  

@@ -6,9 +6,9 @@ import { axiosInstance } from "../lib/axios.ts"
 
 const updateApiToken = (token: string | null) => {
     if (token) {
-        axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;// bu kod axios instance'inin default header'ına token ekliyor
     } else {
-        delete axiosInstance.defaults.headers.common["Authorization"];
+        delete axiosInstance.defaults.headers.common["Authorization"];// token yoksa header'dan siliniyor
     }
 };
 
@@ -19,8 +19,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const initAuth = async () => {
             try {
-                const token = await getToken();
-                updateApiToken(token);
+                const token = await getToken();//kullanıcıdan token alınıyor
+                updateApiToken(token);// token axios instance'ine ekleniyor
             } catch (error: any) {
                 updateApiToken(null);
                 console.log("Error in auth provider", error);
