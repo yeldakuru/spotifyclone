@@ -6,7 +6,7 @@ import fileUpload from 'express-fileupload';//import express-fileupload module t
 import { connectDB } from './lib/db.js';
 import { clerkMiddleware } from "@clerk/express";
 
-
+import cors from 'cors';//import cors module to use cors
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import adminRoutes from './routes/admin.route.js';
@@ -24,7 +24,12 @@ const app = express(); //bu satır, express uygulamasını başlatır
 const PORT = process.env.PORT || 5000; //bu satır, PORT değişkenini alır, eğer yoksa 5000 olarak ayarlar
 const __dirname = path.resolve(); // Get the current directory name
 
+app.use(cors(
+    {
+        origin: "http://localhost:3000",//bu satır, cors'u ayarlar. sadece bu domain'den gelen isteklere izin verir
 
+    }
+));
 app.use(express.json()); //bu satır, gelen isteklerin json formatında olduğunu belirtir to parse json data (req.body)
 
 app.use(clerkMiddleware());//bu satır, clerk middleware'ini kullanır. Bu middleware, kullanıcı kimlik doğrulamasını sağlar.
