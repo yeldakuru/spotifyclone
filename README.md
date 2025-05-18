@@ -7,7 +7,9 @@
  `import tailwindcss from '@tailwindcss/vite' and   plugins: [tailwindcss()],  `-> Added to vite.config.ts implement tailwind  
 `@import "tailwindcss"; `  -> added this to index.css
 ### Shadcn Uİ
-`https://ui.shadcn.com/docs/installation/vite`
+`https://ui.shadcn.com/docs/installation/vite`  
+`npx shadcn@latest add resizable` ->Resizable panel group
+
 
 ### Clerk
 `https://go.clerk.com/CfzKAWC`

@@ -2,22 +2,23 @@ import { Card, CardContent } from "@/components/ui/card";
 import { axiosInstance } from "@/lib/axios";
 import { useUser } from "@clerk/clerk-react";
 import { Loader } from "lucide-react";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthCallback = () => {
     const { isLoaded, user } = useUser();
     const navigate = useNavigate();
-
+    const syncAttempted = useRef(false);
 
     useEffect(() => {
         const syncUser = async () => {
-            if (!isLoaded || !user) return;
+            if (!isLoaded || !user || syncAttempted.current) return;//bu kod, kullanıcı yüklenmemişse veya kullanıcı yoksa veya senkronizasyon daha önce yapılmışsa fonksiyonu durduruyor
+
 
             try {
+                syncAttempted.current = true;
 
-
-                await axiosInstance.post("/auth/callback", {
+                await axiosInstance.post("/auth/callback", {//bu kod, kullanıcı bilgilerini backend'e gönderiyor
                     id: user.id,
                     firstName: user.firstName,
                     lastName: user.lastName,

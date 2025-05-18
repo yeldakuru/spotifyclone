@@ -27,7 +27,7 @@ const __dirname = path.resolve(); // Get the current directory name
 app.use(cors(
     {
         origin: "http://localhost:3000",//bu satır, cors'u ayarlar. sadece bu domain'den gelen isteklere izin verir
-
+        credentials: true,//bu satır, cors'un kimlik bilgilerini kullanmasına izin verir
     }
 ));
 app.use(express.json()); //bu satır, gelen isteklerin json formatında olduğunu belirtir to parse json data (req.body)
