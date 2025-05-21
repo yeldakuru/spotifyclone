@@ -11,15 +11,18 @@
 `npx shadcn@latest add resizable` ->Resizable panel group  
 `npx shadcn@latest add scroll-area`->native scroll functionality
 
-
-
 ### Clerk
 `https://go.clerk.com/CfzKAWC`
+
+### ZUSTAND
+`npm i zustand`  
+
 
 ### Other Packages
 `npm i react-router-dom`  
 `npm i axios`  
 `npm i lucide-react`
+
 
 # BACKEND
 `npm init -y`  

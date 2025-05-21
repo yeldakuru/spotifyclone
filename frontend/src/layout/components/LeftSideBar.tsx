@@ -1,21 +1,21 @@
+
 import PlaylistSkeleton from "@/components/skeletons/PlaylistSkeleton";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
-
+import { useMusicStore } from "@/stores/useMusicStore";
 import { SignedIn } from "@clerk/clerk-react";
 import { HomeIcon, Library, MessageCircle } from "lucide-react";
-
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const LeftSidebar = () => {
-    // const { albums, fetchAlbums, isLoading } = useMusicStore();
+const LeftSideBar = () => {
 
-    // useEffect(() => {
-    //     fetchAlbums();
-    // }, [fetchAlbums]);
+    const { albums, isLoading, fetchAlbums } = useMusicStore();
 
-    // console.log({ albums });
+    useEffect(() => {
+        fetchAlbums();
+    }, [fetchAlbums]);
 
     return (
         <div className='h-full flex flex-col gap-2'>
@@ -67,7 +67,7 @@ const LeftSidebar = () => {
                         {isLoading ? (
                             <PlaylistSkeleton />
                         ) : (
-                            albums.map((album) => (
+                            albums.map((album: any) => (
                                 <Link
                                     to={`/albums/${album._id}`}
                                     key={album._id}
@@ -90,6 +90,7 @@ const LeftSidebar = () => {
                 </ScrollArea>
             </div>
         </div>
-    );
-};
-export default LeftSidebar;
+    )
+}
+
+export default LeftSideBar
