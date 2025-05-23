@@ -9,19 +9,19 @@ type MusicStore = {
     error: string | null;
     currentAlbum: Album | null;
 
-    fetchAlbums: () => Promise<void>;
-    fetchAlbumById: (id: string) => Promise<void>;
+    fetchAlbums: () => Promise<void>;// function to fetch albums
+    fetchAlbumById: (id: string) => Promise<void>;//bu function, albüm id'sine göre albüm verilerini çekmek için kullanılır
 }
 
-export const useMusicStore = create<MusicStore>((set) => ({
-    albums: [],
+export const useMusicStore = create<MusicStore>((set) => ({//set state i güncellemek için kullanılır
+    albums: [], // baslangıc degerleri
     songs: [],
     isLoading: false,
     error: null,
     currentAlbum: null,
 
-    fetchAlbums: async () => {
-        set({ isLoading: true, error: null });
+    fetchAlbums: async () => {//apiden verileri çekmek için kullanılır
+        set({ isLoading: true, error: null });//is loading true olur ve hata varsa temizlenir
 
         try {
             const response = await axiosInstance.get("/albums");
@@ -33,7 +33,7 @@ export const useMusicStore = create<MusicStore>((set) => ({
         }
     },
 
-    fetchAlbumById: async (id) => {
+    fetchAlbumById: async (id) => {//id ile belirli albümü çekmek için kullanılır
         set({ isLoading: true, error: null });
         try {
             const response = await axiosInstance.get(`/albums/${id}`);

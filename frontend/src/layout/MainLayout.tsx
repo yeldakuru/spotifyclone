@@ -2,16 +2,17 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 import { Outlet } from "react-router-dom"
 import LeftSideBar from "./components/LeftSideBar";
 import { useEffect, useState } from "react";
+import FriendsActivitiy from "./components/FriendsActivity";
 const MainLayout = () => {
     const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => {//bu kod, pencere boyutunu kontrol eder
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+            setIsMobile(window.innerWidth < 768);//768px'den küçükse mobil
         };
 
         checkMobile();
-        window.addEventListener("resize", checkMobile);
+        window.addEventListener("resize", checkMobile);//pencere boyutu değiştiğinde kontrol et
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
     return (
@@ -36,7 +37,7 @@ const MainLayout = () => {
 
                         {/* right sidebar */}
                         <ResizablePanel defaultSize={20} minSize={10} maxSize={25} collapsedSize={0}>
-                            {/* <RightSidebar /> */} rightsidebar
+                            <FriendsActivitiy />
                         </ResizablePanel>
                     </>
                 )}
