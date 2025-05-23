@@ -9,7 +9,10 @@
 ### Shadcn Uİ
 `https://ui.shadcn.com/docs/installation/vite`  
 `npx shadcn@latest add resizable` ->Resizable panel group  
-`npx shadcn@latest add scroll-area`->native scroll functionality
+`npx shadcn@latest add scroll-area`->native scroll functionality  
+`npx shadcn@latest add avatar`
+
+
 
 ### Clerk
 `https://go.clerk.com/CfzKAWC`
