@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import { useEffect } from "react";
 import FeaturedSection from "./components/FeaturedSection";
 import SectionGrid from "./components/SectionGrid";
-import { usePlayerStore } from "@/stores/usePlayerStore";
+// import { usePlayerStore } from "@/stores/usePlayerStore";
 const HomePage = () => {
     const { featuredSongs, fetchFeaturedSongs, trendingSongs, fetchTrendingSongs, madeForYouSongs, fetchMadeForYou, isLoading } = useMusicStore();
 
