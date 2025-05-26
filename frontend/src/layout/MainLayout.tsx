@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom"
 import LeftSideBar from "./components/LeftSideBar";
 import { useEffect, useState } from "react";
 import FriendsActivitiy from "./components/FriendsActivity";
+import AudioPlayer from "./components/AudioPlayer";
 const MainLayout = () => {
     const [isMobile, setIsMobile] = useState(false);
 
@@ -18,7 +19,7 @@ const MainLayout = () => {
     return (
         <div className='h-screen bg-black text-white flex flex-col'>
             <ResizablePanelGroup direction='horizontal' className='flex-1 flex h-full overflow-hidden p-2'>
-
+                <AudioPlayer />
                 {/* left sidebar */}
                 <ResizablePanel defaultSize={20} minSize={isMobile ? 0 : 10} maxSize={20}>
                     <LeftSideBar />
