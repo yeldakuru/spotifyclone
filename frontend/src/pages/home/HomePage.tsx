@@ -5,11 +5,11 @@ import { Loader } from "lucide-react";
 import { useEffect } from "react";
 import FeaturedSection from "./components/FeaturedSection";
 import SectionGrid from "./components/SectionGrid";
-// import { usePlayerStore } from "@/stores/usePlayerStore";
+import { usePlayerStore } from "@/stores/usePlayerStore";
 const HomePage = () => {
     const { featuredSongs, fetchFeaturedSongs, trendingSongs, fetchTrendingSongs, madeForYouSongs, fetchMadeForYou, isLoading } = useMusicStore();
 
-    //   const { initializeQueue } = usePlayerStore();
+    const { initializeQueue } = usePlayerStore();
 
     // Fetch data when the component mounts
     useEffect(() => {
@@ -24,12 +24,12 @@ const HomePage = () => {
         fetchData();
     }, [fetchFeaturedSongs, fetchTrendingSongs, fetchMadeForYou]);
 
-    //   useEffect(() => {
-    // 	if (madeForYouSongs.length > 0 && featuredSongs.length > 0 && trendingSongs.length > 0) {
-    // 		const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
-    // 		initializeQueue(allSongs);
-    // 	}
-    // }, [initializeQueue, madeForYouSongs, trendingSongs, featuredSongs]);
+    useEffect(() => {
+        if (madeForYouSongs.length > 0 && featuredSongs.length > 0 && trendingSongs.length > 0) {
+            const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
+            initializeQueue(allSongs);
+        }
+    }, [initializeQueue, madeForYouSongs, trendingSongs, featuredSongs]);
 
     // Determine greeting message based on current hour
     const currentHour = new Date().getHours();

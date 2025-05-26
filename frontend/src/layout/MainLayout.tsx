@@ -4,6 +4,8 @@ import LeftSideBar from "./components/LeftSideBar";
 import { useEffect, useState } from "react";
 import FriendsActivitiy from "./components/FriendsActivity";
 import AudioPlayer from "./components/AudioPlayer";
+import { SongControls } from "./components/SongControls";
+
 const MainLayout = () => {
     const [isMobile, setIsMobile] = useState(false);
 
@@ -43,7 +45,7 @@ const MainLayout = () => {
                     </>
                 )}
             </ResizablePanelGroup>
-
+            <SongControls />
 
         </div>
     )
